@@ -1,4 +1,5 @@
-[← Home](../README.md)
+[← Home](../README.md)    
+[→ Quiz](QUIZ.md)
 
 # CM1
 
