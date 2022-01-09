@@ -122,3 +122,17 @@ Interdit à un EJB de créer des threads mais:
 permet d'exécuter la méthode en parallèle dans un thread
 
 ## Injection de dépendance
+Au lieu de créer un objet on l'inject par le container
+
+### Injection de ressource
+```java
+@Resource(lookup="java:app/mail/free")
+private Session sessionEMail;
+```
+pour injecter un serveur d'email
+
+### Injection avec CDI
+```java
+@Inject
+A a;
+```
