@@ -39,6 +39,70 @@ Intercepte appels aux composants et ajoute
 - War (Web Archive): servlets, html, jsf, ejb...
 - Ear (Entreprise Arhive)
 
-# Profiles
-## Profile
-Permet à des app d'utiliser une partie des tech de la norme
+# JSF
+## Avantages
+- Permet d'écrire simplement interface
+- Intégré au reste du code Java
+
+## Convient 
+- si interface pas très complexe 
+- si scalabilité faible
+
+## Alternative
+- SPA / Ajax
+- Spring
+
+# Cloud
+...
+
+# JNDI (Java Naming & Directory Interface)
+Accéder à d'autres composants depuis un composant     
+~ Alternative à l'injection de dépendance
+
+```java
+import javax.naming.InitialContext;
+
+    try {
+        InitialContext ic = new InitialContext(); 
+        MonEJB monEJB = (MonEJB)
+        ic.lookup("java:global/app/mod/MonEJB");
+        ...
+    }
+```
+
+# EJB
+
+## Injecter
+```java
+@EJB
+private MonEJB monEJB;
+```
+
+# Maven 
+Décrire, construire, gérer dans un fichier `pom.xml`
+
+## Commandes
+- compile
+- test
+- package
+- install
+- deploy
+
+## Fichiers
+```
+./
+│
+├──  src/
+|    ├── main/
+|    |   ├── java/ # sources .class
+|    |   ├── resources/ # images, xml, config
+|    |   └── webapp/ # html, jsf, web-inf
+|    |
+|    └── test/
+└── target/
+```
+
+# Tests 
+- Unitaire
+- Intégration
+- Fonctionnel
