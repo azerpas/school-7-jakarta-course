@@ -136,3 +136,55 @@ pour injecter un serveur d'email
 @Inject
 A a;
 ```
+
+### Portée du CDI
+Durée de vie de l'objet (ex: une requête HTTP)
+```java
+@RequestScoped // HTTP
+@ViewScoped
+@SessionScoped
+@ApplicationScoped
+@FlowScoped // JSF pages
+```
+
+### Bean CDI dans JSF
+```java
+// BeanImprimante.java
+
+@Named // Named("unNom")
+@RequestScoped
+public class Bean { } // Bean est le nom
+```
+
+```js
+// page2.jsf
+
+<h:inputText value="#{bean.nom}"/>
+```
+
+## Contexte des EJB
+
+### Interface javax.ejb.EJBContext
+Interface d'un EJB avec contexte extérieur
+- Interface fille SessionContext
+
+```java
+@Resource
+private SessionContext context;
+
+public void m(...) {
+    if (...) context.setRollbackOnly();
+}
+```
+
+## Transactions dans les EJB
+
+### 2 types
+- par le container (*CMT: Container Managed Transaction*)
+- par l'EJB (*BMT: Bean Managed Transaction*)
+
+TODO: ...
+
+## Exceptions dans les EJB
+
+TODO: ...
