@@ -183,8 +183,47 @@ public void m(...) {
 - par le container (*CMT: Container Managed Transaction*)
 - par l'EJB (*BMT: Bean Managed Transaction*)
 
-TODO: ...
+### CMT
+Container **démarre** et **termine** les transactions
+```java
+@TransactionAttribute(REQUIRES_NEW)
+```
+#### Attributs
+- NEVER
+- NOT_SUPPORTED
+- SUPPORTS
+- REQUIRED
+- REQUIRES_NEW
+- MANDATORY
+
+### BMT
+Plus de liberté dans la gestion des transactions
+```java
+tx.begin();
+tx.commit();
+tx.rollback();
+```
 
 ## Exceptions dans les EJB
+2 types
+- `RemoteException` (erreur réseau)
+- `EJBException` (erreur EJB)
 
-TODO: ...
+### Traitement exception système
+Container attrape l'exception et : 
+- marque la transaction pour un rollback
+- log
+- enveloppe l'exception
+
+## Service de timers
+Lance méthode EJB à intervalles réguliers
+
+### Types
+- Automatique 
+```java
+@Schedule
+```
+- Crée par programmation
+```java
+@Timeout
+```
