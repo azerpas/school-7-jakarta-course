@@ -9,3 +9,6 @@
 
 ## TP3
 - [TP3: JSF](TP3/README.md)
+
+## TP4
+- [TP4: JPA](TP4/README.md)
